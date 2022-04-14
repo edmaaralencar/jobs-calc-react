@@ -1,58 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { ChakraProvider } from '@chakra-ui/react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
+import { theme } from 'styles/theme'
+
+import Home from 'pages/Home'
+import CreateJob from 'pages/CreateJob'
+import EditJob from 'pages/EditJob'
+import Login from 'pages/Login'
+import Register from 'pages/Register'
+
+import PrivateRoute from 'components/PrivateRoute'
+import Profile from 'pages/Profile'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <ChakraProvider theme={theme}>
+        <Routes>
+          <Route element={<PrivateRoute />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/create-job" element={<CreateJob />} />
+            <Route path="/edit-job/:id" element={<EditJob />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </ChakraProvider>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
