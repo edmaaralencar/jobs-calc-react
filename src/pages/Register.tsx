@@ -104,7 +104,7 @@ const Register = () => {
           >
             Registro
           </Button>
-          <Link color="text.h2" as={RouterLink} to="/login">
+          <Link textAlign="center" color="text.h2" as={RouterLink} to="/login">
             Já possui uma conta? Faça seu login
           </Link>
         </VStack>

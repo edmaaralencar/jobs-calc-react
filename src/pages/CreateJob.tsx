@@ -9,7 +9,8 @@ import {
   Image,
   Text,
   VStack,
-  useToast
+  useToast,
+  Stack
 } from '@chakra-ui/react'
 
 import { FiTrash } from 'react-icons/fi'
@@ -148,7 +149,12 @@ const CreateJob = () => {
             Preencha os dados ao lado para ver o valor do projeto
           </Text>
 
-          <HStack w="100%" gap={4}>
+          <Stack
+            direction={['column', 'row']}
+            align={['center', 'flex-end']}
+            w="100%"
+            gap={4}
+          >
             <Button
               bg="green.400"
               color="white"
@@ -166,7 +172,7 @@ const CreateJob = () => {
               aria-label="Delete project"
               icon={<FiTrash size={24} />}
             />
-          </HStack>
+          </Stack>
         </Flex>
       </Flex>
     </Box>

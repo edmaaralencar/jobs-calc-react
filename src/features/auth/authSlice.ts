@@ -1,5 +1,5 @@
 /* eslint-disable no-empty */
-import { createSlice, createAsyncThunk, Action } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import authService from './authService'
 
 const token = localStorage.getItem('token')
@@ -8,6 +8,10 @@ const user = localStorage.getItem('user')
 export type Login = {
   email: string
   password: string
+}
+
+export type UpdateProfileDto = {
+  teste: string
 }
 
 const initialState: any = {

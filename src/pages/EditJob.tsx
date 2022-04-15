@@ -9,7 +9,8 @@ import {
   Image,
   Text,
   VStack,
-  useToast
+  useToast,
+  Stack
 } from '@chakra-ui/react'
 import Header from 'components/Header'
 
@@ -159,7 +160,12 @@ const EditJob = () => {
             </Text>
           </Text>
 
-          <HStack w="100%" gap={4}>
+          <Stack
+            direction={['column', 'row']}
+            align={['center', 'flex-end']}
+            w="100%"
+            gap={4}
+          >
             <Button
               bg="green.400"
               color="white"
@@ -177,7 +183,7 @@ const EditJob = () => {
               aria-label="Delete project"
               icon={<FiTrash size={24} />}
             />
-          </HStack>
+          </Stack>
         </Flex>
       </Flex>
     </Box>

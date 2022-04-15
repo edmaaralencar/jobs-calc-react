@@ -101,7 +101,7 @@ const Profile = () => {
           bg="shapes.box"
           py="40px"
           px="54"
-          minW={350}
+          minW={['100%', 350]}
         >
           <Avatar
             w={180}
@@ -135,7 +135,12 @@ const Profile = () => {
             </Text>
           </Text>
 
-          <HStack align="flex-end" w="100%" gap={2}>
+          <Stack
+            direction={['column', 'row']}
+            align={['center', 'flex-end']}
+            w="100%"
+            gap={2}
+          >
             <Button
               bg="green.400"
               color="white"
@@ -156,7 +161,7 @@ const Profile = () => {
               aria-label="Delete project"
               icon={<FiLogOut size={24} />}
             />
-          </HStack>
+          </Stack>
         </Flex>
 
         <Flex flexDir="column" w={['100%', '100%', 640]}>

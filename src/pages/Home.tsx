@@ -5,7 +5,8 @@ import {
   Text,
   Button,
   Divider,
-  Avatar
+  Avatar,
+  Link as ChakraLink
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
@@ -45,7 +46,7 @@ const Home = () => {
 
   return (
     <Box as="main" h="100vh">
-      <Flex px="8" flexDir="column" height={[340, 340, 280]} bg="main.primary">
+      <Flex px="8" flexDir="column" height={[450, 340, 280]} bg="main.primary">
         <Flex
           py={10}
           mx="auto"
@@ -55,7 +56,13 @@ const Home = () => {
           width="100%"
           maxWidth={1240}
         >
-          <Logo />
+          <Box display={['none', 'block']}>
+            <Logo />
+          </Box>
+
+          <Box display={['block', 'none']}>
+            <Logo size="small" />
+          </Box>
 
           <Flex display={['none', 'none', 'flex']} gap={2} align="center">
             <Icon as={FiAlertOctagon} color="red.500" />
@@ -116,7 +123,7 @@ const Home = () => {
           flexDir={['column', 'column', 'row']}
           gap={[4, 4, 0]}
         >
-          <Flex gap={10}>
+          <Flex flexWrap="wrap" gap={10}>
             <Flex flexDir="column">
               <Text color="shapes.box" fontWeight="00" fontSize="24px">
                 {status?.total}
@@ -143,20 +150,27 @@ const Home = () => {
             </Flex>
           </Flex>
 
-          <Link to="/create-job">
-            <Button
-              size="lg"
-              fontSize="14px"
-              colorScheme="orange"
-              color="white"
-              gap={8}
-            >
-              <Flex align="center" p={1} bg="rgba(252, 253, 255, .16)">
-                <Icon as={FiPlus} w={5} h={5} />
-              </Flex>
-              ADICIONAR NOVO JOB
-            </Button>
-          </Link>
+          <ChakraLink
+            fontSize={['12px', '14px', '16px']}
+            color="white"
+            gap={8}
+            bg="orange.500"
+            as={Link}
+            to="/create-job"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            width="100%"
+            maxWidth={265}
+            p="2"
+            borderRadius={6}
+            fontWeight="bold"
+          >
+            <Flex align="center" p={1} bg="rgba(252, 253, 255, .16)">
+              <Icon as={FiPlus} w={5} h={5} />
+            </Flex>
+            ADICIONAR NOVO JOB
+          </ChakraLink>
         </Flex>
       </Flex>
 

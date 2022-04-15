@@ -109,7 +109,12 @@ const Login = () => {
           >
             Login
           </Button>
-          <Link color="text.h2" as={RouterLink} to="/register">
+          <Link
+            textAlign="center"
+            color="text.h2"
+            as={RouterLink}
+            to="/register"
+          >
             Não possui uma conta? Faça seu cadastro
           </Link>
         </VStack>
